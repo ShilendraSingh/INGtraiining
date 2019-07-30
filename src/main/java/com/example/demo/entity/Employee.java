@@ -13,6 +13,15 @@ public class Employee {
 	private String employeeName;
 	private String employeeAdress;
 	private Long  employeeMobileNumber;
+	
+	
+	public Employee(Long employeeId, String employeeName, String employeeAdress, Long employeeMobileNumber) {
+		super();
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+		this.employeeAdress = employeeAdress;
+		this.employeeMobileNumber = employeeMobileNumber;
+	}
 	public Long getEmployeeId() {
 		return employeeId;
 	}
