@@ -14,7 +14,9 @@ public class Employee {
 	private String employeeAdress;
 	private Long  employeeMobileNumber;
 	
-	
+	public Employee() {
+		// TODO Auto-generated constructor stub
+	}
 	public Employee(Long employeeId, String employeeName, String employeeAdress, Long employeeMobileNumber) {
 		super();
 		this.employeeId = employeeId;

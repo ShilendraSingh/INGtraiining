@@ -3,6 +3,7 @@ package com.example.demo.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.management.RuntimeErrorException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,14 +29,19 @@ private EmployeeRepo employeerepo;
 
 	@Override
 	public Employee getById(Long id) {
-		Employee E1=null;
-		Optional <Employee> E2=employeerepo.findById(id);
-		if(E2.isPresent())
+		Optional <Employee> emp=employeerepo.findById(id);
+		if(!emp.isPresent())
 		{
-			E1=E2.get();
+			try {
+				throw new Exception();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+		return emp.get();
 		
-		return E1;
+		
 	}
 
 	@Override

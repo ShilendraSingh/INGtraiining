@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -58,23 +59,28 @@ public class EmployeeControllerTest {
 	@Test
 	public void testSaveemployee() throws Exception{
 		mockMvc.perform(MockMvcRequestBuilders.post("/Employee/saveemployee").contentType(MediaType.APPLICATION_JSON).accept(MediaType.ALL).content(asJsonObject(emp))).andExpect(status().isOk());
+		assertEquals("Shalendra", employeeController.saveemployee(emp));
 	}
 	@Test
 	public void testSaveemployee1() throws Exception{
 		mockMvc.perform(MockMvcRequestBuilders.get("/Employee/getemployee/1").contentType(MediaType.APPLICATION_JSON).accept(MediaType.ALL).content(asJsonObject(emp))).andExpect(status().isOk());
+		assertEquals("Shalendra", employeeController.getallEmployee(emp));
 	}
 	@Test
 	public void testSaveemployee2() throws Exception{
 		mockMvc.perform(MockMvcRequestBuilders.delete("/Employee/deleteemployee/1").contentType(MediaType.APPLICATION_JSON).accept(MediaType.ALL).content(asJsonObject(emp))).andExpect(status().isOk());
+		//assertEquals("Shalendra", employeeController.deleteEmployee(1l));
 	}
 	
 	@Test
 	public void testSaveemployee3() throws Exception{
 		mockMvc.perform(MockMvcRequestBuilders.get("/Employee/getAllemployee").contentType(MediaType.APPLICATION_JSON).accept(MediaType.ALL).content(asJsonObject(emp))).andExpect(status().isOk());
+		assertEquals("Shalendra", employeeController.getallEmployee(emp));
 	}
 	
 	@Test
 	public void testSaveemployee4() throws Exception{
 		mockMvc.perform(MockMvcRequestBuilders.put("/Employee/updateemployee/1").contentType(MediaType.APPLICATION_JSON).accept(MediaType.ALL).content(asJsonObject(emp))).andExpect(status().isOk());
+		assertEquals("Shalendra", employeeController.updateemployee(emp));
 	}
 }
